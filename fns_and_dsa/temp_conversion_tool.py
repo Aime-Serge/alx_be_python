@@ -62,18 +62,26 @@ def get_unit_input():
 
 def main():
     """
-    Main function to run the temperature conversion tool.
+    Main function to run the temperature conversion tool in a loop.
     """
     print("=== Temperature Conversion Tool ===")
-    temp_value = get_temperature_input()
-    unit = get_unit_input()
 
-    if unit == "C":
-        converted_temp = convert_to_fahrenheit(temp_value)
-        print(f"{temp_value:.2f}°C is {converted_temp:.2f}°F")
-    else:
-        converted_temp = convert_to_celsius(temp_value)
-        print(f"{temp_value:.2f}°F is {converted_temp:.2f}°C")
+    while True:
+        temp_value = get_temperature_input()
+        unit = get_unit_input()
+
+        if unit == "C":
+            converted_temp = convert_to_fahrenheit(temp_value)
+            print(f"{temp_value:.2f}°C is {converted_temp:.2f}°F")
+        else:
+            converted_temp = convert_to_celsius(temp_value)
+            print(f"{temp_value:.2f}°F is {converted_temp:.2f}°C")
+
+        # Ask the user if they want to convert another temperature
+        again = input("Do you want to convert another temperature? (Y/N): ").strip().upper()
+        if again != "Y":
+            print("Thank you for using the Temperature Conversion Tool. Goodbye!")
+            break
 
 
 if __name__ == "__main__":
