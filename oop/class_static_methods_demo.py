@@ -1,70 +1,44 @@
-class Book:
-    """A class representing a book with basic metadata and magic methods."""
+# oop/class_static_methods_demo.py
+"""
+Module: class_static_methods_demo
+Description: Illustrates the difference between class and static methods using a Calculator class.
+"""
 
-    def __init__(self, title, author):
-        """Initialize book attributes."""
-        self.title = title
-        self.author = author
+class Calculator:
+    """
+    A simple calculator demonstrating class and static methods.
 
-    def __str__(self):
-        """Return a user-friendly string representation."""
-        return f"{self.title} by {self.author}"
+    Class Attributes:
+        calculation_type (str): A description of the type of calculation.
+    """
 
-    def __repr__(self):
-        """Return an official string representation (useful for debugging)."""
-        return f"Book('{self.title}', '{self.author}')"
+    calculation_type: str = "Arithmetic Operations"
 
-    def __del__(self):
-        """Destructor called when an object is deleted."""
-        print(f"Deleting {self.title}")
+    @staticmethod
+    def add(a: float, b: float) -> float:
+        """
+        Add two numbers.
 
+        Args:
+            a (float): First number.
+            b (float): Second number.
 
-class EBook(Book):
-    """A subclass representing an electronic book."""
+        Returns:
+            float: Sum of the two numbers.
+        """
+        return a + b
 
-    def __init__(self, title, author, file_size):
-        super().__init__(title, author)
-        self.file_size = file_size
+    @classmethod
+    def multiply(cls, a: float, b: float) -> float:
+        """
+        Multiply two numbers and display the class-level attribute.
 
-    def __str__(self):
-        """Return a user-friendly string representation."""
-        return f"{self.title} by {self.author}, File Size: {self.file_size}KB"
+        Args:
+            a (float): First number.
+            b (float): Second number.
 
-    def __repr__(self):
-        """Return an official string representation."""
-        return f"EBook('{self.title}', '{self.author}', {self.file_size})"
-
-
-class PrintBook(Book):
-    """A subclass representing a printed book."""
-
-    def __init__(self, title, author, page_count):
-        super().__init__(title, author)
-        self.page_count = page_count
-
-    def __str__(self):
-        """Return a user-friendly string representation."""
-        return f"{self.title} by {self.author}, Page Count: {self.page_count}"
-
-    def __repr__(self):
-        """Return an official string representation."""
-        return f"PrintBook('{self.title}', '{self.author}', {self.page_count})"
-
-
-class Library:
-    """A class representing a library that manages books."""
-
-    def __init__(self):
-        self.books = []
-
-    def add_book(self, book):
-        """Add a book instance (Book, EBook, or PrintBook) to the library."""
-        if isinstance(book, Book):
-            self.books.append(book)
-        else:
-            raise TypeError("Only Book or its subclasses can be added.")
-
-    def list_books(self):
-        """List all books currently in the library."""
-        for book in self.books:
-            print(book)
+        Returns:
+            float: Product of the two numbers.
+        """
+        print(f"Calculation type: {cls.calculation_type}")
+        return a * b
