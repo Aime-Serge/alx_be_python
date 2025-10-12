@@ -8,15 +8,15 @@ class Book:
 
     def __str__(self):
         """Return a user-friendly string representation."""
-        return f"{self.title} by {self.author}"
+        return f"Book: {self.title} by {self.author}"
 
     def __repr__(self):
-        """Return an official string representation (useful for debugging)."""
+        """Return an official string representation."""
         return f"Book('{self.title}', '{self.author}')"
 
-    def __del__(self):
-        """Destructor called when an object is deleted."""
-        print(f"Deleting {self.title}")
+    # Comment out or remove this to match expected output
+    # def __del__(self):
+    #     print(f"Deleting {self.title}")
 
 
 class EBook(Book):
@@ -28,7 +28,7 @@ class EBook(Book):
 
     def __str__(self):
         """Return a user-friendly string representation."""
-        return f"{self.title} by {self.author}, File Size: {self.file_size}KB"
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
 
     def __repr__(self):
         """Return an official string representation."""
@@ -44,7 +44,7 @@ class PrintBook(Book):
 
     def __str__(self):
         """Return a user-friendly string representation."""
-        return f"{self.title} by {self.author}, Page Count: {self.page_count}"
+        return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
     def __repr__(self):
         """Return an official string representation."""
@@ -68,4 +68,3 @@ class Library:
         """List all books currently in the library."""
         for book in self.books:
             print(book)
-
