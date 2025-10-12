@@ -6,7 +6,7 @@ class Book:
         self.title = title
         self.author = author
         self.year = year
-        print(f"Book '{self.title}' created successfully!")
+        # Removed print statement to match expected output
 
     def __str__(self):
         """Return a user-friendly string representation."""
@@ -19,5 +19,3 @@ class Book:
     def __del__(self):
         """Destructor called when an object is deleted."""
         print(f"Deleting {self.title}")
-
-
